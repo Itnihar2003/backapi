@@ -4,6 +4,7 @@ from django.urls import path,include
 from rest_framework.routers import DefaultRouter
 from ecommerce.productapp.views import brandviewset,productviewset,categoryviewset,productdetailviewset
 from drf_spectacular.views import SpectacularAPIView,  SpectacularSwaggerView
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 router =DefaultRouter()
 router.register(r'brand/',brandviewset, basename='brand')
 router.register(r'category/',categoryviewset, basename='category')
@@ -17,3 +18,4 @@ urlpatterns = [
     # Optional UI:
     path('advanceapi/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
 ]
+urlpatterns +=staticfiles_urlpatterns()
